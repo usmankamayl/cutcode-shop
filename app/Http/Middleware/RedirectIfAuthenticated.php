@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+//use Domain\Auth\Providers\RouteServiceProvider;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;

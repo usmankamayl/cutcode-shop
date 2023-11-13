@@ -2,7 +2,9 @@
 
 namespace App\Exceptions;
 
+use DomainException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -48,5 +50,11 @@ class Handler extends ExceptionHandler
                 app('sentry')->captureException($e);
             }
         });
+
+        $this->renderable(function (DomainException $e) {
+            flash()->alert($e->getMessage());
+            return back();
+        });
+
     }
 }
