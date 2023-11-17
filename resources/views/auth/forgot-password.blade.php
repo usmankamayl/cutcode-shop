@@ -3,7 +3,7 @@
 
 @section('content')
    <x-forms.auth-forms title="Забыли пароль"
-           action="{{ route('password.handle') }}"
+           action="{{ route('forgot.handle') }}"
            method="POST">
        @csrf
        <x-forms.text-input
